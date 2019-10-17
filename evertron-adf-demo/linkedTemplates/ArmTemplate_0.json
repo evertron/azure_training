@@ -125,7 +125,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ADF-DEMO-COPY')]",
+			"name": "[concat(parameters('factoryName'), '/ADF-COPY-DEMO')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -135,7 +135,7 @@
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
-							"timeout": "0.00:00:10",
+							"timeout": "0.00:00:30",
 							"retry": 0,
 							"retryIntervalInSeconds": 30,
 							"secureOutput": false,
@@ -166,7 +166,6 @@
 								}
 							},
 							"enableStaging": false,
-							"dataIntegrationUnits": 2,
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
