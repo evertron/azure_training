@@ -44,7 +44,7 @@
 							"referenceName": "adlsdevconn",
 							"type": "LinkedServiceReference"
 						},
-						"path": "ErrorRecords"
+						"path": "ErrorRejects"
 					},
 					"translator": {
 						"type": "TabularTranslator",
