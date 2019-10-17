@@ -78,6 +78,14 @@
 								}
 							},
 							"enableStaging": false,
+							"enableSkipIncompatibleRow": true,
+							"redirectIncompatibleRowSettings": {
+								"linkedServiceName": {
+									"referenceName": "adlsdevconn",
+									"type": "LinkedServiceReference"
+								},
+								"path": "ErrorRecords"
+							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -134,7 +142,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/EmpDataSet')]",
-				"[concat(variables('factoryId'), '/datasets/EmpSink')]"
+				"[concat(variables('factoryId'), '/datasets/EmpSink')]",
+				"[concat(variables('factoryId'), '/linkedServices/adlsdevconn')]"
 			]
 		},
 		{
