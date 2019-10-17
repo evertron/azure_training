@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "evertron-adf-demo"
+		},
+		"adlsdevconn_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'adlsdevconn'"
+		},
+		"adlsdevconn_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://evertronadlsdemo.azuredatalakestore.net/webhdfs/v1"
+		},
+		"adlsdevconn_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2f2e525b-a63b-4c91-afc9-e86d3c57a697"
+		},
+		"adlsdevconn_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "4d23802d-4dc3-48d9-be3b-d66ada85217c"
+		},
+		"adlsdevconn_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "5677037d-7db2-41da-a675-6cf0bcddeae9"
+		},
+		"adlsdevconn_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "rg-adfdemo"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"adlsdevconn_servicePrincipalKey": {
+						"value": "[parameters('adlsdevconn_servicePrincipalKey')]"
+					},
+					"adlsdevconn_properties_typeProperties_dataLakeStoreUri": {
+						"value": "[parameters('adlsdevconn_properties_typeProperties_dataLakeStoreUri')]"
+					},
+					"adlsdevconn_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('adlsdevconn_properties_typeProperties_servicePrincipalId')]"
+					},
+					"adlsdevconn_properties_typeProperties_tenant": {
+						"value": "[parameters('adlsdevconn_properties_typeProperties_tenant')]"
+					},
+					"adlsdevconn_properties_typeProperties_subscriptionId": {
+						"value": "[parameters('adlsdevconn_properties_typeProperties_subscriptionId')]"
+					},
+					"adlsdevconn_properties_typeProperties_resourceGroupName": {
+						"value": "[parameters('adlsdevconn_properties_typeProperties_resourceGroupName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

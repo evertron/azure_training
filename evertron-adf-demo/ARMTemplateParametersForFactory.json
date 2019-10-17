@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "evertron-adf-demo"
+		},
+		"adlsdevconn_servicePrincipalKey": {
+			"value": ""
+		},
+		"adlsdevconn_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://evertronadlsdemo.azuredatalakestore.net/webhdfs/v1"
+		},
+		"adlsdevconn_properties_typeProperties_servicePrincipalId": {
+			"value": "2f2e525b-a63b-4c91-afc9-e86d3c57a697"
+		},
+		"adlsdevconn_properties_typeProperties_tenant": {
+			"value": "4d23802d-4dc3-48d9-be3b-d66ada85217c"
+		},
+		"adlsdevconn_properties_typeProperties_subscriptionId": {
+			"value": "5677037d-7db2-41da-a675-6cf0bcddeae9"
+		},
+		"adlsdevconn_properties_typeProperties_resourceGroupName": {
+			"value": "rg-adfdemo"
+		}
+	}
+}
