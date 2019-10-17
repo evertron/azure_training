@@ -19,10 +19,6 @@
 		},
 		"schema": [
 			{
-				"name": "NAME",
-				"type": "String"
-			},
-			{
 				"name": "AGE",
 				"type": "String"
 			},
