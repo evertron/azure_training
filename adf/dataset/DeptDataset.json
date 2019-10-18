@@ -19,7 +19,15 @@
 		},
 		"schema": [
 			{
-				"name": "ID|DeptName|DeptStrength",
+				"name": "ID",
+				"type": "String"
+			},
+			{
+				"name": "DeptName",
+				"type": "String"
+			},
+			{
+				"name": "DeptStrength",
 				"type": "String"
 			}
 		]
