@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@activity('Get Metadata1').output.childitems.length().equals(2)",
+						"value": "@equals(activity('Get Metadata1').output.childitems.length(),'2')",
 						"type": "Expression"
 					}
 				}
