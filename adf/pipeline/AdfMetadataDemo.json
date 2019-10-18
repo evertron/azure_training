@@ -49,6 +49,18 @@
 						"value": "@equals(activity('Get Metadata1').output.exists,true)",
 						"type": "Expression"
 					},
+					"ifFalseActivities": [
+						{
+							"name": "Set variable2",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "folderstatus",
+								"value": "The folder doesnt exist"
+							}
+						}
+					],
 					"ifTrueActivities": [
 						{
 							"name": "Set variable1",
