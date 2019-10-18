@@ -6,30 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "evertron-adf-demo"
-		},
-		"adlsdevconn_servicePrincipalKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'servicePrincipalKey' of 'adlsdevconn'"
-		},
-		"adlsdevconn_properties_typeProperties_dataLakeStoreUri": {
-			"type": "string",
-			"defaultValue": "https://evertronadlsdemo.azuredatalakestore.net/webhdfs/v1"
-		},
-		"adlsdevconn_properties_typeProperties_servicePrincipalId": {
-			"type": "string",
-			"defaultValue": "2f2e525b-a63b-4c91-afc9-e86d3c57a697"
-		},
-		"adlsdevconn_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "4d23802d-4dc3-48d9-be3b-d66ada85217c"
-		},
-		"adlsdevconn_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "5677037d-7db2-41da-a675-6cf0bcddeae9"
-		},
-		"adlsdevconn_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "rg-adfdemo"
 		}
 	},
 	"variables": {
@@ -117,15 +93,13 @@
 						"inputs": [
 							{
 								"referenceName": "EmpDataSrc",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "EmpDataSink",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -160,9 +134,7 @@
 				},
 				"schema": []
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/adlsdevconn')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/EmpDataSrc')]",
@@ -199,29 +171,6 @@
 						"type": "String"
 					}
 				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/adlsdevconn')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/adlsdevconn')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDataLakeStore",
-				"typeProperties": {
-					"dataLakeStoreUri": "[parameters('adlsdevconn_properties_typeProperties_dataLakeStoreUri')]",
-					"servicePrincipalId": "[parameters('adlsdevconn_properties_typeProperties_servicePrincipalId')]",
-					"servicePrincipalKey": {
-						"type": "SecureString",
-						"value": "[parameters('adlsdevconn_servicePrincipalKey')]"
-					},
-					"tenant": "[parameters('adlsdevconn_properties_typeProperties_tenant')]",
-					"subscriptionId": "[parameters('adlsdevconn_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('adlsdevconn_properties_typeProperties_resourceGroupName')]"
-				}
 			},
 			"dependsOn": []
 		}
