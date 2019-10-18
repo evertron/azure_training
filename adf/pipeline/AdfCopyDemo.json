@@ -38,6 +38,14 @@
 						}
 					},
 					"enableStaging": false,
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "adlsdevconn",
+							"type": "LinkedServiceReference"
+						},
+						"path": "ErrorRejects"
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
