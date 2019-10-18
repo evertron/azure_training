@@ -62,7 +62,7 @@
 							{
 								"source": {
 									"name": "AGE",
-									"type": "String"
+									"type": "Int64"
 								},
 								"sink": {
 									"name": "AGE",
