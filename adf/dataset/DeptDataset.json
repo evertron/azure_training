@@ -1,0 +1,27 @@
+{
+	"name": "DeptDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsdevconn",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"folderPath": "DepartmentData"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ID|DeptName|DeptStrength",
+				"type": "String"
+			}
+		]
+	}
+}
