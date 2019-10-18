@@ -15,6 +15,25 @@
 					"timeout": "0.00:00:30",
 					"sleep": 10
 				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Validation1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@activity('Validation1').output.exists == true",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"annotations": []
